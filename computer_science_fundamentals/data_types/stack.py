@@ -15,7 +15,10 @@ class Stack:
         self.max_size = max_size
 
     def __repr__(self):
-        representation = 'Stack with top item {}'.format(self.peek())
+        if len(self.elements) > 0:
+            representation = 'Stack with top item {}'.format(self.peek())
+        else:
+            representation = 'Empty stack'
         return representation
 
     def push(self, item):
