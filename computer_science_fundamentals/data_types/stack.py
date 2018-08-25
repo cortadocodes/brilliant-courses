@@ -3,7 +3,7 @@ import math
 
 class Stack:
     """
-    Implements a high-level demonstration of the stack datatype. Main
+    Implement a high-level demonstration of the stack datatype. Main
     properties:
     * An item can be added to the top of the stack
     * The item at the top of the stack can be popped or peeked at
@@ -23,7 +23,7 @@ class Stack:
 
     def push(self, item):
         """
-        Adds item to the top of the stack.
+        Add item to the top of the stack.
 
         :param any item: item to add to top of stack
         """
