@@ -22,14 +22,28 @@ class Node:
         representation = '{} Node with {} children'.format(type, self.value, len(self.children))
         return representation
 
-    def connect_child_nodes(self, child_nodes):
-        for child in child_nodes:
-            self.children[child.value] = child
-            if child.is_doubly_linked:
+    def create_child_nodes(self, child_node_values, is_doubly_linked=False):
+        """
+        Create individual child nodes with child_node_values.
+
+        :param list child_node_values: values to create child nodes for
+        :param bool is_doubly_linked: self will be doubly linked to child if True
+        """
+        for value in child_node_values:
+            self.children[value] = Node(value)
+            if is_doubly_linked:
+                child = self.children[value]
                 child.parents[self.value] = self
 
-    def connect_parent_nodes(self, parent_nodes):
-        for parent in parent_nodes:
+    def create_parent_nodes(self, parent_node_values, is_doubly_linked=False):
+        """
+        Create individual parent nodes with parent_node_values.
+
+        :param list parent_node_values: values to create parent nodes for
+        :param bool is_doubly_linked: self will be doubly linked to parent if True
+        """
+        for value in parent_node_values:
+            parent = Node(value)
             parent.children[self.value] = self
-            if self.is_doubly_linked:
+            if is_doubly_linked:
                 self.parents[parent.value] = parent
