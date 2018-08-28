@@ -16,10 +16,10 @@ class Node:
 
     def __repr__(self):
         if self.is_doubly_linked:
-            type = 'doubly-linked'
+            type = 'Doubly-linked'
         else:
-            type = 'singly-linked'
-        representation = '{} Node: {}'.format(type, self.value)
+            type = 'Singly-linked'
+        representation = '{} Node with {} children'.format(type, self.value, len(self.children))
         return representation
 
     def connect_child_nodes(self, child_nodes):
